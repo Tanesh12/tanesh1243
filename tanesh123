@@ -1,0 +1,15 @@
+
+def solution(S):
+    stack = []
+
+    for char in S:
+        if char in ['(', '[', '{']:
+            stack.append(char)
+        elif char == ')' and (not stack or stack.pop() != '('):
+            return 0
+        elif char == ']' and (not stack or stack.pop() != '['):
+            return 0
+        elif char == '}' and (not stack or stack.pop() != '{'):
+            return 0
+
+    return 1 if not stack else 0
